@@ -9,25 +9,11 @@ inquire
       type: "input",
       message: "What is the title",
       name: "Title",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Need a title to continue";
-        }
-      },
     },
     {
       type: "input",
       message: "What is your app about",
       name: "Description",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Need a Description to continue";
-        }
-      },
     },
     {
       type: "input",
@@ -44,7 +30,17 @@ inquire
       type: "list",
       message: "What license was used",
       name: "License",
-      choices: ["License-MIT", "License-Apache_2.0", "License-MPL_2.0","License-ODbL"]
+      choices: [
+        {name: "GNU AGPLv3", value: "AGPL%20v3-blue"},
+        {name: "GNU GPLv3", value: "GPLv3-blue"},
+        {name: "GNU LGPLv3", value: "LGPL%20v3-blue"},
+        {name: "Mozilla Public 2.0", value: "MPL%202.0-brightgreen"},
+        {name: "Apache 2.0", value: "Apache%202.0-blue"},
+        {name: "MIT",value: "MIT-yellow"},
+        {name: "Boost Software 1.0", value: "Boost%201.0-lightblue"},
+        {name: "The Unlicense", value: "Unlicense-blue"},
+        "none",
+    ]
     },
     {
       type: "input",
@@ -59,38 +55,17 @@ inquire
     {
       type: "input",
       message: "For questions and support contact",
-      name: "Questions",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Need a E-mail to continue";
-        }
-      },
+      name: "Questions"
     },
     {
       type: "input",
       message: "E-mail",
-      name: "email",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Need a E-mail to continue";
-        }
-      },
+      name: "email"
     },
     {
       type: "input",
       message: "Github Username",
-      name: "git",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Need a Github to continue";
-        }
-      },
+      name: "git"
     },
   ])
   .then(
@@ -107,31 +82,79 @@ inquire
       email,
     }) => {
       const templete = `# ${Title}
+      ${renderLicenseBadge(License)}
+       
+      ## Table of Contents
+      - [Description](#description)
+      - [Installation](#installation)
+      - [Usage](#usage)
+      - [Demo](#demo)
+      - [Built With](#built-with)
+      - [Contributing](#contributing)
+      - [Tests](#tests)
+      - [Contact](#contact)
+      ${renderLicenseLink(License)}
+      
+      ## Description
+      ${Description}
+      
+      ## Installation
+      ${Installation}
+      
+      ## Usage 
+      ${Usage}
+      
+      ## Contributing
+      ${Contributing}
+      
+      ## Tests
+      ${Tests}
 
-## Table_of_Contents
-
-## Description
-${Description}
-## Installation
-${Installation}
-## Usage
-${Usage}
-## License
-${License}
-## Contributing
-${Contributing}
-## Tests
-${Tests}
-## Questions
-${Questions}
-
-# Contact
-###GitHub: ${git}
-###E-mail: ${email}`;
+      ##Questions
+      ${Questions}
+      
+      ${renderLicenseSection(License)}
+      ## Contact
+      **E-mail**: ${email}
+      **GitHub**: [https://github.com/${git}](https://github.com/${git})
+    `;
 
       createNewFile(Title, templete);
     }
   );
+
+  function renderLicenseBadge(license) {
+
+    if (license === "none") {
+      return "";
+    }
+  else {
+  
+    return `![github license](https://img.shields.io/badge/license-${license}.svg)`
+  }
+  };
+
+  function renderLicenseLink(license) {
+    if (license === "none") {
+      return "";
+    }
+    else {
+      return "- [License](#license)"
+    }
+    }
+
+    function renderLicenseSection(license) {
+      if (license === "none") {
+        return "";
+      }
+      else {
+        return `## License
+        For more information on this license, please visit www.opensource.org
+        `;
+      }
+    }
+
+
 function createNewFile(fileName, data) {
   fs.writeFile(
     `./${fileName.toLowerCase().split(" ").join("")}.md`,
