@@ -110,14 +110,6 @@ inquire
 
 ## Table_of_Contents
 
-*(Description)(#Description)
-*Usage
-*License
-*Contributing
-*Tests
-*Questions
-*Contact
-
 ## Description
 ${Description}
 ## Installation
@@ -134,8 +126,8 @@ ${Tests}
 ${Questions}
 
 # Contact
-*GitHub: ${git}
-*E-mail: ${email}`;
+###GitHub: ${git}
+###E-mail: ${email}`;
 
       createNewFile(Title, templete);
     }
