@@ -31,14 +31,14 @@ inquire
       message: "What license was used",
       name: "license",
       choices: [
-        {name: "GNU AGPLv3", value: "AGPL%20v3-blue"},
-        {name: "GNU GPLv3", value: "GPLv3-blue"},
-        {name: "GNU LGPLv3", value: "LGPL%20v3-blue"},
-        {name: "Mozilla Public 2.0", value: "MPL%202.0-brightgreen"},
-        {name: "Apache 2.0", value: "Apache%202.0-blue"},
-        {name: "MIT",value: "MIT-yellow"},
-        {name: "Boost Software 1.0", value: "Boost%201.0-lightblue"},
-        {name: "The Unlicense", value: "Unlicense-blue"},
+        {name: "GNU AGPLv3"},
+        {name: "GNU GPLv3"},
+        {name: "GNU LGPLv3"},
+        {name: "Mozilla Public 2.0"},
+        {name: "Apache 2.0"},
+        {name: "MIT"},
+        {name: "Boost Software 1.0"},
+        {name: "The Unlicense"},
         "none",
     ]
     },
@@ -82,18 +82,15 @@ inquire
       email,
     }) => {
       const templete = `# ${Title}
-      ${renderLicenseBadge(license)}
        
       ## Table of Contents
       - [Description](#description)
       - [Installation](#installation)
       - [Usage](#usage)
       - [Demo](#demo)
-      - [Built With](#built-with)
       - [Contributing](#contributing)
       - [Tests](#tests)
       - [Contact](#contact)
-      ${renderLicenseLink(license)}
       
       ## Description
       ${Description}
@@ -103,6 +100,9 @@ inquire
       
       ## Usage 
       ${Usage}
+
+      ## License
+      ${license}
       
       ## Contributing
       ${Contributing}
@@ -113,7 +113,6 @@ inquire
       ##Questions
       ${Questions}
       
-      ${renderLicenseSection(license)}
       ## Contact
       **E-mail**: ${email}
       **GitHub**: [https://github.com/${git}](https://github.com/${git})
@@ -122,37 +121,6 @@ inquire
       createNewFile(Title, templete);
     }
   );
-
-  function renderLicenseBadge(license) {
-
-    if (license === "none") {
-      return "";
-    }
-  else {
-  
-    return `![github license](https://img.shields.io/badge/license-${license}.svg)`
-  }
-  };
-
-  function renderLicenseLink(license) {
-    if (license === "none") {
-      return "";
-    }
-    else {
-      return "- [License](#license)"
-    }
-    }
-
-    function renderLicenseSection(license) {
-      if (license === "none") {
-        return "";
-      }
-      else {
-        return `## License
-        For more information on this license, please visit www.opensource.org
-        `;
-      }
-    }
 
 
 function createNewFile(fileName, data) {
