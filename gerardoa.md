@@ -1,36 +1,35 @@
 # Gerardo A
        
-      ## Table of Contents
-      - [Description](#description)
-      - [Installation](#installation)
-      - [Usage](#usage)
-      - [Demo](#demo)
-      - [Contributing](#contributing)
-      - [Tests](#tests)
-      - [Contact](#contact)
+ ## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo](#demo)
+- [Contributing](#contributing)
+ - [Tests](#tests)
+ - [Contact](#contact)
       
-      ## Description
+## Description
       me
       
-      ## Installation
+## Installation
       you
       
-      ## Usage 
+## Usage 
       him
 
-      ## License
+## License
       Apache 2.0
       
-      ## Contributing
+## Contributing
       whar
       
-      ## Tests
+## Tests
       nigger
-
-      ##Questions
+## Questions
       me
       
-      ## Contact
-      **E-mail**: 1gerardo3
-      **GitHub**: [https://github.com/1gerardo3](https://github.com/1gerardo3)
+## Contact
+**E-mail**: 1gerardo3
+**GitHub**: [https://github.com/1gerardo3](https://github.com/1gerardo3)
     
