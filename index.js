@@ -110,7 +110,7 @@ inquire
 
 ## Table_of_Contents
 
-*Description
+*(Description)(#Description)
 *Usage
 *License
 *Contributing
