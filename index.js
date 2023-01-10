@@ -29,7 +29,7 @@ inquire
     {
       type: "list",
       message: "What license was used",
-      name: "License",
+      name: "license",
       choices: [
         {name: "GNU AGPLv3", value: "AGPL%20v3-blue"},
         {name: "GNU GPLv3", value: "GPLv3-blue"},
@@ -74,7 +74,7 @@ inquire
       Description,
       Installation,
       Usage,
-      License,
+      license,
       Contributing,
       Tests,
       Questions,
@@ -82,7 +82,7 @@ inquire
       email,
     }) => {
       const templete = `# ${Title}
-      ${renderLicenseBadge(License)}
+      ${renderLicenseBadge(license)}
        
       ## Table of Contents
       - [Description](#description)
@@ -93,7 +93,7 @@ inquire
       - [Contributing](#contributing)
       - [Tests](#tests)
       - [Contact](#contact)
-      ${renderLicenseLink(License)}
+      ${renderLicenseLink(license)}
       
       ## Description
       ${Description}
@@ -113,7 +113,7 @@ inquire
       ##Questions
       ${Questions}
       
-      ${renderLicenseSection(License)}
+      ${renderLicenseSection(license)}
       ## Contact
       **E-mail**: ${email}
       **GitHub**: [https://github.com/${git}](https://github.com/${git})
