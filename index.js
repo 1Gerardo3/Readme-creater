@@ -81,24 +81,25 @@ inquire
       git,
       email,
     }) => {
-      const templete = `# ${Title}
+      const templete =
+      `# ${Title}
        
-      ## Table of Contents
-      - [Description](#description)
-      - [Installation](#installation)
-      - [Usage](#usage)
-      - [Demo](#demo)
-      - [Contributing](#contributing)
-      - [Tests](#tests)
-      - [Contact](#contact)
+    ## Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Demo](#demo)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Contact](#contact)
       
-      ## Description
+    ## Description
       ${Description}
       
-      ## Installation
+    ## Installation
       ${Installation}
       
-      ## Usage 
+    ## Usage 
       ${Usage}
 
       ## License
@@ -113,19 +114,19 @@ inquire
       ##Questions
       ${Questions}
       
-      ## Contact
+      # Contact
       **E-mail**: ${email}
-      **GitHub**: [https://github.com/${git}](https://github.com/${git})
+      **GitHub**: [https://github.com/${git}]
     `;
 
-      createNewFile(Title, templete);
+      createNewFile(Title,templete);
     }
   );
 
 
 function createNewFile(fileName, data) {
   fs.writeFile(
-    `./${fileName.toLowerCase().split(" ").join("")}.md`,
+    `./${fileName.toLowerCase().split("").join("")}.md`,
     data,
     (err) => {
       if (err) {
